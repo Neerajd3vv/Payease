@@ -1,5 +1,5 @@
 {
-  "name": "@payease/orm",
+  "name": "@repo/db",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "prisma": "^5.15.0"
+  },
+  "exports":{
+    "./client" : "./index.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.15.0"

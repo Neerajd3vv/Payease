@@ -9,7 +9,10 @@ export async  function POST (req:NextRequest) {
     const newUser = await client.user.create({
       data : {
           email : data.email,
-          name: data.name
+          name: data.name,
+          phoneNumber : data.phboneNumer,
+          password: data.password
+          
       }
       
     })
