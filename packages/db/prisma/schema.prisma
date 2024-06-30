@@ -14,10 +14,36 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String ?
-  phoneNumber String @unique @default("0")
-  password String 
+  id                 Int                  @id @default(autoincrement())
+  email              String               @unique
+  name               String?
+  phoneNumber        String               @unique @default("0")
+  password           String
+  Balances           Balances[]
+  OnRampTransactions OnRampTransactions[]
 }
 
+model OnRampTransactions {
+  id        Int          @id @default(autoincrement())
+  status    OnRampStatus
+  token     String       @unique
+  provider  String
+  amount    Int
+  userId    Int
+  startTime DateTime
+  user      User         @relation(fields: [userId], references: [id])
+}
+
+model Balances {
+  id     Int  @id @default(autoincrement())
+  amount Int
+  userId Int  @unique
+  locked Int
+  user   User @relation(fields: [userId], references: [id])
+}
+
+enum OnRampStatus {
+  Success
+  Failed
+  Processing
+}

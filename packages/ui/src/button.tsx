@@ -1,7 +1,14 @@
 "use client"
 
-export function Button (){
+import  { ReactNode } from "react"
+
+interface buttonType {
+  children: ReactNode
+  onClick: () => void
+}
+
+export function Button ({children, onClick}: buttonType){
   return(
-    <button className="bg-blue-500 text-white">Click me!</button>
+    <button onClick={onClick} className="bg-blue-500 px-5 py-2 rounded-3xl text-white">{children}</button>
   )
 }
