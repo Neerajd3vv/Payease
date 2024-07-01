@@ -9,6 +9,6 @@ interface buttonType {
 
 export function Button ({children, onClick}: buttonType){
   return(
-    <button onClick={onClick} className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-3xl text-white font-lato">{children}</button>
+    <button onClick={onClick} className=" text-black   px-8 py-2    font-montserrat  border-2 rounded-full bg-slate-200">{children}</button>
   )
 }
