@@ -1,8 +1,10 @@
 import increase from "./images/increase.png";
 import Image from "next/image";
+import { AppbarClient } from "./components/AppbarClient";
 export default function LanPage() {
   return (
     <div>
+<AppbarClient/>
       <main className="min-h-screen min-w-screen">
         <section className="">
           <div className="grid grid-cols-1 lg:grid-cols-2 bg-Myblue  lg:pl-36">
@@ -84,7 +86,7 @@ export default function LanPage() {
         <button className="border-2 font-montserrat font-bold rounded-xl px-6 py-2 bg-white text-Myblue">Get started</button>
        </section>
       </main>
-      <footer className="bg-MainBlack text-white py-10 text-center">
+      <footer className="bg-MainBlack text-white py-4 text-center">
         <div>
           <div className="pb-2 font-montserrat">&copy; 2024 PayEase. All rights reserved</div>
         </div>
