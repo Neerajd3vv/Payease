@@ -19,7 +19,6 @@ export const authOptions = {
       // TODO: User credentials type from next-aut
       async authorize(credentials: any) {
         // Do zod validation, OTP validation here
-        const hashedPassword = await bcrypt.hash(credentials.password, 10);
         const existingUser = await db.user.findFirst({
           where: {
             phoneNumber: credentials.phone,
@@ -35,15 +34,19 @@ export const authOptions = {
             return {
               id: existingUser.id.toString(),
               name: existingUser.name,
-              email: existingUser.phoneNumber,
+              email: existingUser.email,
             };
           }
         }
-        return null;
+        
+        return null
       },
     }),
   ],
   secret: process.env.JWT_SECRET || "secret",
+  pages: {
+    signIn: "/signin",
+  },
   callbacks: {
     async session({ token, session }: any) {
       session.user.id = token.sub;
@@ -51,7 +54,4 @@ export const authOptions = {
       return session;
     },
   },
-  pages: {
-    signIn : "/signin"
-  }
 };

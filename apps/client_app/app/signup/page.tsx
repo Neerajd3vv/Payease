@@ -4,15 +4,29 @@ import Link from "next/link";
 import { useState } from "react";
 import { Buttonsinginsignup } from "../components/Button";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 export default function Signup() {
+  const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
   return (
     <div className="h-screen flex justify-center items-center ">
       <div className="border-2  bg-white text-center shadow-lg rounded-2xl py-20 max-w-lg w-full">
-        <div className="font-roboto font-semibold  pb-10 text-4xl">Register yourself!</div>
+        <div className="font-roboto font-semibold  pb-10 text-4xl">
+          Register yourself!
+        </div>
+        <div>
+          <Inputbox
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            placeholder="john serrif"
+            label="Name"
+            type="text"
+          />
+        </div>
         <div>
           <Inputbox
             onChange={(e) => {
@@ -44,12 +58,26 @@ export default function Signup() {
           />
         </div>
         <div className="pt-8 pb-2">
-          <Buttonsinginsignup onClick={() => {
-            axios.post("https://localhost:3000/api/auth/signup" ,{
-                phoneNumber,
-                password
-            })
-          }} content="Signup" />
+          <Buttonsinginsignup
+            onClick={async () => {
+              const user = await axios.post(
+                "http://localhost:3000/api/auth/signup",
+                {
+                  phoneNumber,
+                  password,
+                  email,
+                  name,
+                }
+              );
+              const userData = user.data.msg;
+              if (userData) {
+                router.push("/signin");
+              } else {
+                alert("Error in creating user!");
+              }
+            }}
+            content="Signup"
+          />
         </div>
         <div className="font-afacad  ">
           Go back to -
@@ -57,7 +85,6 @@ export default function Signup() {
             Signin
           </Link>
         </div>
-        
       </div>
     </div>
   );
