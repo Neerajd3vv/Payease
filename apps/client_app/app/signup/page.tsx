@@ -19,6 +19,7 @@ export default function Signup() {
         </div>
         <div>
           <Inputbox
+          className="px-6"
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -29,6 +30,7 @@ export default function Signup() {
         </div>
         <div>
           <Inputbox
+           className="px-6"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
@@ -39,6 +41,7 @@ export default function Signup() {
         </div>
         <div>
           <Inputbox
+           className="px-6"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -49,6 +52,7 @@ export default function Signup() {
         </div>
         <div>
           <Inputbox
+           className="px-6"
             onChange={(e) => {
               setPassword(e.target.value);
             }}

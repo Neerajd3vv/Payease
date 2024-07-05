@@ -50,7 +50,7 @@ const config: Config = {
   suttleblue: "#bfdbf7",
   purple: "#5a189a",
   jubile: "#edf2f4",
-  jack: "#"
+  
  }
  }
   },

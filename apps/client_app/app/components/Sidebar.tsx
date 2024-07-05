@@ -1,5 +1,6 @@
 
 "use client"
+
 interface SidebarType {
   icon: React.ReactNode
   title: string;
@@ -13,13 +14,13 @@ export function Sidebar({ icon, title, href }: SidebarType) {
   const pathname = usePathname()
   const selected = pathname === href
   return (
-    <div className="pl-8 p-2 flex cursor-pointer"
+    <div className="pl-8 p-2  flex cursor-pointer"
       onClick={() => {
         router.push(href);
       }}
     >
       <div className="pr-2">{icon}</div>
-      <div className={`font-bold font-lato  ${selected? "text-heheblu" : "text-slate-500"}`}  >{title}</div>
+      <div className={` font-poppins font-bold   ${selected? "text-heheblu" : "text-slate-500"}`}  >{title}</div>
     </div>
   );
 }

@@ -27,12 +27,13 @@ export default function Signin() {
   };
   return (
     <div className="border-2  flex justify-center h-screen items-center ">
-      <div className="border-2   text-center shadow-lg rounded-2xl py-20 max-w-lg w-full ">
+      <div className="border-2 bg-white text-center shadow-lg rounded-2xl py-20 max-w-lg w-full ">
         <div className=" font-roboto font-semibold  pb-10 text-4xl">
           Sign in to PayEase
         </div>
         <div>
           <Inputbox
+            className="px-6"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
@@ -43,6 +44,7 @@ export default function Signin() {
         </div>
         <div>
           <Inputbox
+          className="px-6"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
