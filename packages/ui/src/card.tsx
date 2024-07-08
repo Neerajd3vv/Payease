@@ -1,25 +1,18 @@
-export function Card({
-  className,
-  title,
-  children,
-  href,
-}: {
-  className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
-}): JSX.Element {
-  return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
-  );
+import React from "react"
+
+interface TransferType {
+  title: string,
+  children: React.ReactNode
 }
+
+export  function Card ({title , children }:TransferType){
+  return (
+    <div className="border px-6 py-12 bg-white rounded-lg shadow-md ">
+      <div className="flex justify-center pb-2 border-b border-slate-300">
+      <h1 className="text-3xl font-montserrat font-bold">{title} </h1>
+      </div>
+      <div>{children} </div> 
+    </div>
+  )
+}
+

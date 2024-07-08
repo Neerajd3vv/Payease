@@ -1,7 +1,7 @@
 "use client";
 import { Buttonsinginsignup } from "../components/Button";
 import Link from "next/link";
-import { Inputbox } from "../components/Inputbox";
+import { TextInput } from "@repo/ui/textinput";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -32,7 +32,7 @@ export default function Signin() {
           Sign in to PayEase
         </div>
         <div>
-          <Inputbox
+          <TextInput
             className="px-6"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
@@ -43,7 +43,7 @@ export default function Signin() {
           />
         </div>
         <div>
-          <Inputbox
+          <TextInput
           className="px-6"
             onChange={(e) => {
               setPassword(e.target.value);

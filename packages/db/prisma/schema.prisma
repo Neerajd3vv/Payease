@@ -38,7 +38,7 @@ model Balances {
   id     Int  @id @default(autoincrement())
   amount Int
   userId Int  @unique
-  locked Int
+  locked Int 
   user   User @relation(fields: [userId], references: [id])
 }
 
