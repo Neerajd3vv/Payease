@@ -18,18 +18,25 @@ export const authOptions = {
       },
       // TODO: User credentials type from next-aut
       async authorize(credentials: any) {
+        // console.log("Received credentials:", credentials);
+
         // Do zod validation, OTP validation here
-        const existingUser = await db.user.findFirst({
+        const existingUser = await db.user.findUnique({
           where: {
-            phoneNumber: credentials.phone,
+            phoneNumber: credentials.phoneNumber,
           },
         });
+        // console.log("Existing user:", existingUser);
+        // const userhashedpass = await bcrypt.hash(credentials.password, 10);
+        // console.log({ dbhashpass: existingUser?.password });
+        // console.log({ newhashpass: userhashedpass });
 
         if (existingUser) {
           const passwordValidation = await bcrypt.compare(
             credentials.password,
             existingUser.password
           );
+
           if (passwordValidation) {
             return {
               id: existingUser.id.toString(),
@@ -38,8 +45,8 @@ export const authOptions = {
             };
           }
         }
-        
-        return null
+
+        return null;
       },
     }),
   ],
