@@ -8,7 +8,11 @@ interface TransactionType {
   startTime: Date;
 }
 
-export  function OnRampTransactions ({transactions}: {transactions:TransactionType[]}) {
+export function OnRampTransactions({
+  transactions,
+}: {
+  transactions: TransactionType[];
+}) {
   if (!transactions.length) {
     return (
       <div>
@@ -21,13 +25,13 @@ export  function OnRampTransactions ({transactions}: {transactions:TransactionTy
   return (
     <div>
       <Card title="Recent Transactions">
-        {transactions.map(transaction => (
-          <div className="flex justify-center pt-4">
+        {transactions.map((transaction) => (
+          <div className="flex justify-between pt-4">
             <div>
-              <div>Received INR</div>
-              <div>{transaction.startTime.toDateString()}</div>
+              <div className=" font-semibold text-lg">Received INR</div>
+              <div className="font-hind text-slate-400 font-semibold">{transaction.startTime.toDateString()}</div>
             </div>
-            <div>+ Rs {transaction.amount / 100}</div>
+            <div className="flex flex-col justify-center font-hind font-semibold text-lg">+ Rs {transaction.amount / 100}</div>
           </div>
         ))}
       </Card>
