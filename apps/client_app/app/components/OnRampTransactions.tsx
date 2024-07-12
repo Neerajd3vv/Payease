@@ -26,7 +26,7 @@ export function OnRampTransactions({
     <div>
       <Card title="Recent Transactions">
         {transactions.map((transaction) => (
-          <div className="flex justify-between pt-4">
+          <div className="flex justify-between pt-1 border-b border-slate-200">
             <div>
               <div className=" font-semibold text-lg">Received INR</div>
               <div className="font-hind text-slate-400 font-semibold">{transaction.startTime.toDateString()}</div>

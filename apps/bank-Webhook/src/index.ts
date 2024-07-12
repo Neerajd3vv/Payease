@@ -3,13 +3,22 @@ import db from "@repo/db/client";
 const app = express();
 
 const port = 3003;
-
+app.use(express.json())
 app.post("/hdfcWebhook", async (req, res) => {
-  const paymentInfo = {
+  //TODO: Add zod validation here?
+    //TODO: HDFC bank should ideally send us a secret so we know this is sent by them
+  const paymentInfo : {
+    token : string,
+    userId: string,
+    amount: string
+
+  } = {
     token: req.body.token,
-    userId: req.body.userId,
-    amount: req.body.amount,
-  };
+    userId: req.body.user_identifier,
+    amount: req.body.amount
+
+  }
+
 
   try {
     // we have to make sure that both of task  completed or neither of them . Other wise there will be conflict. SO we will be using transaction in prisma which make sure both happen or failed.
@@ -17,11 +26,11 @@ app.post("/hdfcWebhook", async (req, res) => {
     await db.$transaction([
       db.balances.update({
         where: {
-          userId: paymentInfo.userId,
+          userId: Number(paymentInfo.userId),
         },
         data: {
           amount: {
-            increment: paymentInfo.amount,
+            increment: Number(paymentInfo.amount),
           },
         },
       }),

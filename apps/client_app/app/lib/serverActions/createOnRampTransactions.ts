@@ -1,5 +1,5 @@
 "use server";
-
+// "Server component needs to be marked as use-server at the top so next know it needs to be called at the server . otherwise next will try to run this funtion on client side where prisma  doesnt even exists!  "
 
 import db from "@repo/db/client";
 import { authOptions } from "../authoptions";

@@ -39,7 +39,7 @@ export default async function () {
   return (
     <div className=" w-screen pl-10 pr-6">
       <div className="pt-12 pb-10 font-rubikone text-Myblue text-4xl">
-        Transfer
+      Topup Wallet 
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="">
