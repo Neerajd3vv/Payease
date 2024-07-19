@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@repo/db": "*",
     "@repo/store": "*",
     "@repo/ui": "*",
-    "@repo/db": "*",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
+    "framer-motion": "^11.3.8",
+    "gsap": "^3.12.5",
     "next": "15.0.0-rc.0",
     "next-auth": "^4.24.7",
     "react": "19.0.0-rc-f994737d14-20240522",

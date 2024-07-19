@@ -24,7 +24,7 @@ export function OnRampTransactions({
   }
   return (
     <div>
-      <Card title="Recent Transactions">
+      <Card title=" Topup Transactions">
         {transactions.map((transaction) => (
           <div className="flex justify-between pt-1 border-b border-slate-200">
             <div>

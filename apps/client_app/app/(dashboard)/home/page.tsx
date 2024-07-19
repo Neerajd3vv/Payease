@@ -1,8 +1,7 @@
 
-export default function (){
-    return(
-        <div>
-            hello
-        </div>
-    )
+
+export default function () {
+  return (
+<div>home</div>
+  );
 }
