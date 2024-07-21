@@ -28,10 +28,10 @@ export function OnRampTransactions({
         {transactions.map((transaction) => (
           <div className="flex justify-between pt-1 border-b border-slate-200">
             <div>
-              <div className=" font-semibold text-lg">Received INR</div>
-              <div className="font-hind text-slate-400 font-semibold">{transaction.startTime.toDateString()}</div>
+              <div className="  font-montserrat text-lg font-bold">Received INR</div>
+              <div className="font-afacad text-slate-400 text-md font-semibold ">{transaction.startTime.toDateString()}</div>
             </div>
-            <div className="flex flex-col justify-center font-hind font-semibold text-lg">+ Rs {transaction.amount / 100}</div>
+            <div className="flex flex-col justify-center font-lato text-lg">+ Rs {transaction.amount / 100}</div>
           </div>
         ))}
       </Card>

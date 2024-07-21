@@ -3,26 +3,42 @@ import db from "@repo/db/client";
 const app = express();
 
 const port = 3003;
-app.use(express.json())
+app.use(express.json());
 app.post("/hdfcWebhook", async (req, res) => {
   //TODO: Add zod validation here?
-    //TODO: HDFC bank should ideally send us a secret so we know this is sent by them
-    //  check whether onRampTransaction is processing  or not. if yes then only this code should run 
-  const paymentInfo : {
-    token : string,
-    userId: string,
-    amount: string
-
+  //TODO: HDFC bank should ideally send us a secret so we know this is sent by them
+  //  check whether onRampTransaction is processing  or not. if yes then only this code should run
+  const paymentInfo: {
+    token: string;
+    userId: string;
+    amount: string;
   } = {
     token: req.body.token,
     userId: req.body.user_identifier,
-    amount: req.body.amount
+    amount: req.body.amount,
+  };
 
-  }
-
+ 
 
   try {
     // we have to make sure that both of task  completed or neither of them . Other wise there will be conflict. SO we will be using transaction in prisma which make sure both happen or failed.
+
+    
+    const UserHasbalance = await db.balances.findUnique({
+      where: {
+        id: Number(paymentInfo.userId),
+      },
+    });
+  
+    if (!UserHasbalance) {
+       await db.balances.create({
+        data: {
+          locked: 0,
+          amount: 0,
+          userId: Number(paymentInfo.userId),
+        },
+      });
+    }
 
     await db.$transaction([
       db.balances.update({

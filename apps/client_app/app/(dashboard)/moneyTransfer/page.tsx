@@ -1,47 +1,46 @@
-import { SendCard } from "../../components/transferMoney";
 import db from "@repo/db/client";
-import { authOptions } from "../../lib/authoptions";
 import { getServerSession } from "next-auth";
+import { authOptions } from "../../lib/authoptions";
+import { SendCard } from "../../components/transferMoney";
 
-const p2pTransaction = async () => {
+const p2pApiCall = async () => {
   const session = await getServerSession(authOptions);
 
-  const sender = await db.user.findFirst({
+  if (!session || !session.user.id) {
+    throw new Error("Not authorized");
+  }
+
+  const userId = Number(session?.user?.id);
+ 
+
+  const Transfertransactions = await db.p2pTransferRecord.findMany({
     where: {
-      id: Number(session?.user?.id),
+      OR: [{ senderUserId: userId }, { receiverUserId: userId }],
     },
-  });
-  const senderName = sender?.name;
-
-  const transactions = await db.p2pTransferRecord.findMany({
-    where: {
-      senderUserId: Number(session?.user?.id),
-    },
+    // Me being dump developer forgot that we can use include to access data from other table if they are in a relation. i was doing i dont the what not to access names of receiver and sender
+    include:{
+      sender : true,
+      receiver: true
+    }
   });
 
-  const receiverId = transactions.map((x) => {
-    return x.senderUserId;
-  });
+   
 
-  const ReceiverName = await db.user.findFirst({
-    where: {
-      id: Number(receiverId),
-    },
-  });
-  const receiverActualName = ReceiverName?.name;
-
-  return transactions.map((transaction) => ({
+  return Transfertransactions.map((transaction) => ({
     amount: transaction.amount,
-    sender: senderName,
+    sender: transaction.sender.name,
+    receiver: transaction.receiver.name,
     startTime: transaction.transferTime,
-    receiver: receiverActualName,
   }));
 };
 
+export default async function TransactionsPage() {
+  const session = await getServerSession(authOptions);
 
-export default function () {
-  const p2p = p2pTransaction()
-  return (
-    <SendCard p2pTransactions={p2p}/>
-  )
+  const loggedInUser = session?.user?.name 
+
+  const transactions = await p2pApiCall();
+  // console.log(transactions);  // yes im getting array of balance object
+
+  return <SendCard Transactions={transactions} senderName={loggedInUser} />;
 }
