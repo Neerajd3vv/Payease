@@ -20,7 +20,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #fffcf2;
+  --background: linear-gradient(to bottom, #ebf8ff, #ffffff);
   --foreground: #171717;
 }
 

@@ -37,7 +37,7 @@ export default async function () {
   const balances = await userbalance();
   const onRampTransactions = await userRecentTransactions();
   return (
-    <div className=" w-screen pl-10 pr-6">
+    <div className=" px-3 lg:px-0 w-screen lg:pl-10 lg:pr-6">
       <div className="pt-12 pb-10 font-rubikone text-Myblue text-4xl">
       Topup Wallet 
       </div>
@@ -57,3 +57,4 @@ export default async function () {
     </div>
   );
 }
+
