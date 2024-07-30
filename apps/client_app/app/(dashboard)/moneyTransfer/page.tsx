@@ -44,7 +44,7 @@ export default async function TransactionsPage() {
       <div className="pt-12  font-rubikone text-Myblue text-4xl">
         Transaction Dashboard
       </div>
-      <div className="grid  grid-cols-1 pt-8 lg:grid-cols-2 gap-6 ">
+      <div className="grid  grid-cols-1 pt-8 lg:grid-cols-2 gap-8 ">
         <div >
           <SendCard />
         </div>

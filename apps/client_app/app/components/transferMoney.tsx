@@ -13,7 +13,7 @@ export function SendCard() {
 
   return (
     
-        <div className="flex justify-center  h-screen ">
+        <div className="flex justify-center   ">
           <div className=" w-full max-w-2xl">
             <Card title="Send Money">
               <div>
