@@ -2,6 +2,7 @@ import db from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authoptions";
 import { SendCard } from "../../components/transferMoney";
+
 import { TransferDetails } from "../../components/TransferDetails";
 const p2pApiCall = async () => {
   const session = await getServerSession(authOptions);
@@ -41,6 +42,7 @@ export default async function TransactionsPage() {
 
   return (
     <div className="w-screen px-3 lg:px-0 lg:pl-10 lg:pr-6 ">
+      
       <div className="pt-12  font-rubikone text-Myblue text-4xl">
         Transaction Dashboard
       </div>

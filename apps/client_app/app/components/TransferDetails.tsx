@@ -5,6 +5,7 @@ interface p2pTransactionType {
   startTime: Date;
 }
 import { Card } from "@repo/ui/card";
+import { FilterTransaction } from "./FilterTransaction";
 export function TransferDetails({
   Transactions,
   senderName,
@@ -14,7 +15,8 @@ export function TransferDetails({
 }) {
   return (
     <div>
-      <div >
+      <FilterTransaction/>
+      <div>
         <Card title="All Transactions">
           <div className="flex font-montserrat text-lg font-bold justify-between border-b border-slate-300 py-3 ">
             <div className=" flex w-2/3 ">

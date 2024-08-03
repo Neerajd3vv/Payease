@@ -21,6 +21,9 @@
     "packages/*"
   ],
   "dependencies": {
-    "axios": "^1.7.2"
+    "axios": "^1.7.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.21",
+    "tailwind-merge": "^2.4.0"
   }
 }
