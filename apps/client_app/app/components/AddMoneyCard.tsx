@@ -33,9 +33,9 @@ export   function AddMoneyCard() {
             onChange={(e) => {
               setAmount(Number(e.target.value))
             }}
-            labelClassName="font-afacad font-semibold"
+            labelClassName=" font-semibold"
           />
-          <div className="pt-4 font-afacad font-semibold ">Bank</div>
+          <div className="pt-4  font-semibold ">Bank</div>
           <Dropbox
             onSelect={(e) => {
               setRedirectUrl(

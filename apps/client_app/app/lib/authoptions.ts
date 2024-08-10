@@ -60,5 +60,8 @@ export const authOptions = {
 
       return session;
     },
+    
   },
+  
+  synchronize : false
 };

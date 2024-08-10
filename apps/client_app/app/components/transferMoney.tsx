@@ -18,6 +18,7 @@ export function SendCard() {
             <Card title="Send Money">
               <div>
                 <TextInput
+                labelClassName="font-semibold"
                   label="Phone number"
                   placeholder="9999098075"
                   onChange={(e) => {
@@ -25,6 +26,7 @@ export function SendCard() {
                   }}
                 />
                 <TextInput
+                 labelClassName="font-semibold"
                   label="Amount"
                   placeholder="Enter amount"
                   onChange={(e) => {

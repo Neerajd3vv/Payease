@@ -47,13 +47,13 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
             </button>
           )}
           {smallScreen && (
-            <div className=" md:hidden fixed inset-0 bg-gradient-to-b from-blue-100 to-white  ">
+            <div className=" lg:hidden fixed inset-0 bg-gradient-to-b from-blue-100 to-white  ">
               <div className="flex justify-end p-6">
                 <button
                   onClick={() => {
                     setSmallScreen(!smallScreen);
                   }}
-                  className="text-black"
+                  className="text-black hover:scale-125"
                 >
                   <svg
                     className="w-6 h-6"
@@ -77,7 +77,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
                     setSmallScreen(!smallScreen);
                     router.push("/home");
                   }}
-                  className="cursor-pointer hover:bg-actualBlack my-1 hover:text-white  py-1 hover:scale-125"
+                  className="cursor-pointer hover:bg-Myblue my-1 hover:text-white  py-1 hover:scale-125"
                 >
                   Home
                 </div>
@@ -86,7 +86,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
                     setSmallScreen(!smallScreen);
                     router.push("/topup");
                   }}
-                  className="cursor-pointer hover:bg-actualBlack  my-1 py-1 hover:scale-125 hover:text-white "
+                  className="cursor-pointer hover:bg-Myblue  my-1 py-1 hover:scale-125 hover:text-white "
                 >
                   Topup wallet
                 </div>
@@ -95,12 +95,12 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
                     setSmallScreen(!smallScreen);
                     router.push("/moneyTransfer");
                   }}
-                  className="cursor-pointer hover:bg-actualBlack hover:scale-125 my-1 hover:text-white py-1"
+                  className="cursor-pointer hover:bg-Myblue hover:scale-125 my-1 hover:text-white py-1"
                 >
                   Transfer money
                 </div>
                 <div
-                  className="cursor-pointer hover:bg-actualBlack my-1 py-1 hover:text-white hover:scale-125 "
+                  className="cursor-pointer hover:bg-Myblue my-1 py-1 hover:text-white hover:scale-125 "
                   onClick={user ? onSignout : onSignin}
                 >
                   {" "}

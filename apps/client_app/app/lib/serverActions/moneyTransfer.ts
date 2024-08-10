@@ -28,7 +28,7 @@ export async function transferMoney(phoneNumber: string, amount: number) {
     // Here we ara locking row so no matter how many request came particular row wont get affected util the transaction completed
     // We are doing it in raw sql queries as prisma doesnt support locking for now
 
-    await transaction.$queryRaw`SELECT * FROM "Balances" WHERE "userId"= ${Number(session?.user?.id)} FOR UPDATE`;
+    // await transaction.$queryRaw`SELECT * FROM "Balances" WHERE "userId"= ${Number(session?.user?.id)} FOR UPDATE`;
 
     const userBalance = await transaction.balances.findUnique({
       where: {

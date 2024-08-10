@@ -1,21 +1,39 @@
-interface p2pTransactionType {
-  amount: number;
-  sender: string;
-  receiver: string;
-  startTime: Date;
-}
 import { Card } from "@repo/ui/card";
-import { FilterTransaction } from "./FilterTransaction";
-export function TransferDetails({
-  Transactions,
-  senderName,
-}: {
-  Transactions: p2pTransactionType[];
-  senderName: string;
-}) {
+import { authOptions } from "../lib/authoptions";
+import { getServerSession } from "next-auth";
+import db from "@repo/db/client";
+async function p2pApiCall() {
+  const session = await getServerSession(authOptions);
+  if (!session || !session.user.id) {
+    throw new Error("Not Authorised!");
+  }
+
+  const userId = Number(session?.user?.id);
+  const transactions = await db.p2pTransferRecord.findMany({
+    where: {
+      OR: [{ senderUserId: userId }, { receiverUserId: userId }],
+    },
+    include: {
+      sender: true,
+      receiver: true,
+    },
+  });
+
+  return transactions.map((transaction) => ({
+    amount: transaction.amount,
+    sender: transaction.sender.name,
+    receiver: transaction.receiver.name,
+    startTime: transaction.transferTime,
+  }));
+}
+
+export async function TransferDetails() {
+  const session = await getServerSession(authOptions);
+  const senderName = session?.user?.name;
+  const allTransactions = await p2pApiCall();
+
   return (
     <div>
-      <FilterTransaction/>
       <div>
         <Card title="All Transactions">
           <div className="flex font-montserrat text-lg font-bold justify-between border-b border-slate-300 py-3 ">
@@ -32,7 +50,7 @@ export function TransferDetails({
             </div>
             <div className="text-center">Amount</div>
           </div>
-          {Transactions.map((transaction) => (
+          {allTransactions.map((transaction) => (
             <div className="flex justify-between  py-2 border-b border-slate-300 ">
               <div className="flex  w-2/3">
                 <div className="text-center  w-full w-max-md   ">
@@ -45,8 +63,8 @@ export function TransferDetails({
                     {transaction.receiver}
                   </div>
                 </div>
-                <div className=" w-full text-center w-max-xl">
-                  <div className="font-afacad text-slate-400 text-lg font-semibold">
+                <div className=" w-full flex flex-col justify-center items-center w-max-xl">
+                  <div className="font-poppins text-sm text-slate-400 ">
                     {transaction.startTime.toDateString()}
                   </div>
                 </div>

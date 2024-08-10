@@ -6,7 +6,7 @@ export default function ({ children }: { children: React.ReactNode }) {
     <div>
       <AppbarClient />
       <div className="flex">
-        <div className="border-r w-72 h-screen hidden lg:block border-slate-300  pt-28">
+        <div className="border-r w-72 min-h-screen hidden lg:block border-slate-300  pt-28">
           <Sidebar title="Home" href="/home" icon={<HomeIcon />} />
           <Sidebar
             title="Topup Wallet"
