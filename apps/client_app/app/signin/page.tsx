@@ -13,19 +13,23 @@ export default function Signin() {
   const router = useRouter();
 
   const SigninHandler = async () => {
-    setLoading(true);
-    try {
-      const result = await signIn("credentials", {
-        redirect: false,
-        phoneNumber,
-        password,
-      });
-      if (result?.ok) {
-        setLoading(false);
-        router.push("/home");
+    if (!password || !phoneNumber) {
+      alert("Give Phone number and Passoword");
+    } else {
+      setLoading(true);
+      try {
+        const result = await signIn("credentials", {
+          redirect: false,
+          phoneNumber,
+          password,
+        });
+        if (result?.ok) {
+          setLoading(false);
+          router.push("/home");
+        }
+      } catch (error) {
+        alert("Error while signin");
       }
-    } catch (error) {
-      alert("Error while signin");
     }
   };
   return (
@@ -40,7 +44,7 @@ export default function Signin() {
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
-            placeholder="999000444"
+            placeholder="Test number - 9999900000 "
             type="text"
             label="Phone number"
           />
@@ -51,7 +55,7 @@ export default function Signin() {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="12345"
+            placeholder="Test passwor - muzan456"
             type="password"
             label="Password"
           />

@@ -8,6 +8,7 @@ interface InputboxType {
   className?: string;
   inputClassName?: string;
   labelClassName?: string;
+  value? : string
 }
 
 export function TextInput({
@@ -16,6 +17,7 @@ export function TextInput({
   type,
   onChange,
   className,
+  value,
   labelClassName,
   inputClassName,
 }: InputboxType) {
@@ -29,6 +31,7 @@ export function TextInput({
         onChange={onChange}
         type={type}
         placeholder={placeholder}
+        value={value}
       />
     </div>
   );
