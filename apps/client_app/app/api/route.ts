@@ -6,7 +6,7 @@ const client = new PrismaClient ()
 export async  function POST (req:NextRequest) {
  try {
     const data = await req.json()
-    const newUser = await client.user.create({
+     await client.user.create({
       data : {
           email : data.email,
           name: data.name,

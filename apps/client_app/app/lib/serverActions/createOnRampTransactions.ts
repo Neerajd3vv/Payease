@@ -25,7 +25,6 @@ export async function createOnRampTransactions (provider: string , amount:number
       userId: Number(session?.user?.id),
     },
   });
-console.log({onRamp : newOnRampTransactions });
 
   return { 
     message : "OnRampTransactions created!"

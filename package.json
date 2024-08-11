@@ -25,6 +25,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.21",
     "next": "^14.2.5",
+    "styled-jsx": "^5.1.6",
     "tailwind-merge": "^2.4.0"
   }
 }

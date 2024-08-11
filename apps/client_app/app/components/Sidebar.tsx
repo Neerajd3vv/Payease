@@ -12,6 +12,8 @@ import React from "react";
 export function Sidebar({ icon, title, href }: SidebarType) {
   const router = useRouter();
   const pathname = usePathname()
+  console.log("pathname", pathname);
+  
   const selected = pathname === href
   return (
     <div className="pl-8 p-2  flex cursor-pointer"
