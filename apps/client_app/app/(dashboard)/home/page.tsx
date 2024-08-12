@@ -2,6 +2,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authoptions";
 import db from "@repo/db/client";
 
+
+
+
 async function getUserInfo() {
   const session = await getServerSession(authOptions);
 
