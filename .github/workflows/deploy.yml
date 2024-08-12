@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Deploy Docker image to ec2:
+  build-and-push:
     runs-on: ubuntu:latest
     steps:
       - name: Check out repo
