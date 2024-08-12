@@ -22,6 +22,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: .docker/Dockerfile.clientApp
+          file: ./docker/Dockerfile.clientApp
           push: true
           tags: neerajcheetah/payease-next:latest
