@@ -10,7 +10,7 @@ export function AppbarClient() {
        
         onSignin={signIn}
         onSignout={async () => {
-          await signOut({callbackUrl:"/"});
+          await signOut({callbackUrl:"http://ec2-13-233-113-132.ap-south-1.compute.amazonaws.com:3005"});
           
         }}
         user={session.data?.user}
