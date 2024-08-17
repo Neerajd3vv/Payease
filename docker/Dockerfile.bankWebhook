@@ -17,7 +17,7 @@ RUN npm install
 # Generate the Prisma client
 RUN npm run db:generate
 
-
+# Port where it wiil run inside container
 EXPOSE 3003 
 
 # Build and  Start the Bank-webhook
