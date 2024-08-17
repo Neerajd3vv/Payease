@@ -24,7 +24,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
       </div>
       <div className="flex px-6 lg:pr-72">
         <div className="">
-          <Button onClick={user ? onSignout : onSignin}>
+          <Button onClick={user ? router.push("http://ec2-13-233-113-132.ap-south-1.compute.amazonaws.com:3005/") : onSignin}>
             {user ? "Logout" : "Log in"}
           </Button>
           {user ? (
