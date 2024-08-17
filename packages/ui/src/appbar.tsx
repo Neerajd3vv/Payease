@@ -15,8 +15,13 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
   const [smallScreen, setSmallScreen] = useState(false);
   const router = useRouter();
 
+  function onSignouButtonClicked() {
+    onSignout()
+    router.push(
+      "http://ec2-13-233-113-132.ap-south-1.compute.amazonaws.com:3005"
+    );
+  }
 
-  
   return (
     <div className="flex items-center justify-between border-b   py-3 ">
       <div className="text-4xl font-montserrat text-Myblue pl-6 lg:pl-36 font-bold content-center">
@@ -24,7 +29,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
       </div>
       <div className="flex px-6 lg:pr-72">
         <div className="">
-          <Button onClick={user ? router.push("http://ec2-13-233-113-132.ap-south-1.compute.amazonaws.com:3005/") : onSignin}>
+          <Button onClick={user ? onSignouButtonClicked : onSignin}>
             {user ? "Logout" : "Log in"}
           </Button>
           {user ? (
@@ -101,7 +106,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
                 </div>
                 <div
                   className="cursor-pointer hover:bg-Myblue my-1 py-1 hover:text-white hover:scale-125 "
-                  onClick={user ? onSignout : onSignin}
+                  onClick={user ? onSignouButtonClicked : onSignin}
                 >
                   {" "}
                   {user ? "Logout" : "Login"}{" "}
