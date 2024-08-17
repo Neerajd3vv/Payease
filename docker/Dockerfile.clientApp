@@ -12,11 +12,11 @@ COPY packages ./packages
 # Install dependencies
 RUN npm install
 
-# Build the app
-RUN npm run build
-
 # Generate the prisma client
 RUN npm run db:generate
+
+# Build the app
+RUN npm run build
 
 # command to start the app
 CMD ["npm", "run", "start-clientApp"]
