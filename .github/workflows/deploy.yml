@@ -15,22 +15,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push client-app Docker image
+      - name: Building and pushing Client-App Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./docker/Dockerfile.clientApp
           push: true
           tags: neerajcheetah/payease-next:latest
-      
-      - name: Build and push Bank-webhook Docker image
+          
+      - name: Building and pushing Bank-Webhook Docker image
         uses: docker/build-push-action@v6
+        with:
           context: .
           file: ./docker/Dockerfile.bankWebhook
           push: true
           tags: neerajcheetah/payease-bank-webhook:latest
-          
-      - name: Deploy to EC2
+
+      - name: Deploy Both images to EC2
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
