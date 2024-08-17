@@ -17,6 +17,9 @@ RUN npm install
 # Generate the Prisma client
 RUN npm run db:generate
 
+# Build the app
+RUN npm run build
+
 # Port where nodejs app will run inside container
 EXPOSE 3003 
 
