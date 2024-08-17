@@ -5,7 +5,6 @@ import { FlipWords } from "../components/ui/flip-word";
 import { signIn } from "next-auth/react";
 const LandingPage = () => {
   const words = ["Quickly!", "Safely!", "Seamlessly!"];
-
   return (
     <div>
       <AppbarClient />
