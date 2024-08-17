@@ -15,7 +15,7 @@ export async function createOnRampTransactions (provider: string , amount:number
   }
 
   const token = (Math.random() * 1000).toString();
-  const newOnRampTransactions = await db.onRampTransactions.create({
+   await db.onRampTransactions.create({
     data: {
       provider: provider,
       status: "Processing",

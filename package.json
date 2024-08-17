@@ -6,8 +6,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "db:generate": "cd packages/db && npx prisma generate &&  cd ../..",
-    "start-clientApp" : "cd ./apps/client_app && npm run start cd../..",
+    "db:generate": "cd ./packages/db && npx prisma generate &&  cd ../..",
+    "start-clientApp" : "cd ./apps/client_app && npm run start && cd ../..",
     "start-bankwebhook" : "cd ./apps/bank-Webhook && npm run dev ../.."
 
     
