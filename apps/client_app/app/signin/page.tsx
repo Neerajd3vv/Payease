@@ -44,7 +44,7 @@ export default function Signin() {
             onChange={(e) => {
               setPhoneNumber(e.target.value);
             }}
-            placeholder="Test number - 9999900000 "
+            placeholder="Demo Number - 9999900000 "
             type="text"
             label="Phone number"
           />
@@ -55,7 +55,7 @@ export default function Signin() {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Test password - muzan456"
+            placeholder="Demo Password - muzan456"
             type="password"
             label="Password"
           />
