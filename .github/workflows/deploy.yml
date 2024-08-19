@@ -22,6 +22,7 @@ jobs:
           file: ./docker/Dockerfile.next-client
           push: true
           tags: neerajcheetah/payease-next:latest
+          no-cache: true
 
       - name: Building and pushing Bank-Webhook Docker image
         uses: docker/build-push-action@v6
