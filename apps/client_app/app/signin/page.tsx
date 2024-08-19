@@ -11,7 +11,6 @@ export default function Signin() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-
   const SigninHandler = async () => {
     if (!password || !phoneNumber) {
       alert("Give Phone number and Passoword");
