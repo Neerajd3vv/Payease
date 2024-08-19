@@ -14,7 +14,7 @@ const LandingPage = () => {
           <FlipWords words={words} />
           <span>with PayEase</span>
         </div>
-        <p className=" font-sans text-gray-600 mb-4">
+        <p className="font-sans text-gray-600 mb-4">
           Effortlessly manage, add, and track your funds. Welcome to a smarter
           way to handle your money.
         </p>

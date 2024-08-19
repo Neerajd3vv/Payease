@@ -19,7 +19,7 @@ export function Appbar({ user, onSignin, onSignout }: Appbartype) {
   
   return (
     <div className="flex items-center justify-between border-b   py-3 ">
-      <div className="text-4xl font-montserrat text-Myblue pl-6 lg:pl-36 font-bold content-center">
+      <div className="text-4xl  text-Myblue pl-6 lg:pl-36 font-bold content-center">
         PayEase
       </div>
       <div className="flex px-6 lg:pr-72">

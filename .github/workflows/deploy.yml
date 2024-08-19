@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull neerajcheetah/payease-next:latest
+            sudo docker pull neerajcheetah/payease-next:$(git rev-parse --short HEAD)
             sudo docker stop Payease || true
             sudo docker rm Payease || true
             sudo docker run -e DATABASE_URL=${{secrets.DATABASE_URL}} -d --name Payease -p 3005:3000 neerajcheetah/payease-next:latest
