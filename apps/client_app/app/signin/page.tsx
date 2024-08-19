@@ -55,7 +55,7 @@ export default function Signin() {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Test passwor - muzan456"
+            placeholder="Test password - muzan456"
             type="password"
             label="Password"
           />
