@@ -22,7 +22,6 @@ jobs:
           file: ./docker/Dockerfile.next-client
           push: true
           tags: neerajcheetah/payease-next:latest
-          no-cache: true
 
       - name: Building and pushing Bank-Webhook Docker image
         uses: docker/build-push-action@v6
@@ -42,7 +41,7 @@ jobs:
             sudo docker pull neerajcheetah/payease-next:latest
             sudo docker stop Payease || true
             sudo docker rm Payease || true
-            sudo docker run --pull always -e DATABASE_URL=${{secrets.DATABASE_URL}} -d --name Payease -p 3005:3000 neerajcheetah/payease-next:latest
+            sudo docker run -e DATABASE_URL=${{secrets.DATABASE_URL}} -d --name Payease -p 3005:3000 neerajcheetah/payease-next:latest
        
             sudo docker pull neerajcheetah/payease-bank-webhook:latest
             sudo docker stop Bank-Webhook || true
