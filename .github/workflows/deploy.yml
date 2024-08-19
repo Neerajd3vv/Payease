@@ -16,7 +16,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Building Client-App Docker image
-        run: docker build -t neerajcheetah/payease-next:latest -f ./docker/Dockerfile.clientApp .
+        run: docker build -t neerajcheetah/payease-next:latest -f ./docker/Dockerfile.next-client .
 
       - name: Pushing Client-App Docker image
         run: docker push neerajcheetah/payease-next:latest

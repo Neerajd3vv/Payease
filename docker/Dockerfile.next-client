@@ -1,0 +1,24 @@
+# Base image for container
+FROM node:20.12.0-alpine3.19
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the essential files for dependency installation and Turborepo
+COPY package.json package-lock.json turbo.json ./
+
+# Copy the entire monorepo (apps and packages)
+COPY apps ./apps
+COPY packages ./packages
+
+# Install dependencies, respecting workspaces
+RUN npm install
+
+# Generate the Prisma client (if necessary)
+RUN npm run db:generate
+
+# Build the application using Turborepo, specifically targeting the client app
+RUN npm run build --filter=client_app...
+
+# Command to start the client app
+CMD ["npm", "run", "start-clientApp"]

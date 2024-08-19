@@ -18,7 +18,7 @@ RUN npm install
 RUN npm run db:generate
 
 # Build the app
-RUN npm run build
+RUN npm run build --filter=bank-Webhook...
 
 # Port where nodejs app will run inside container
 EXPOSE 3003 
