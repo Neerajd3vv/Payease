@@ -9,12 +9,12 @@ const LandingPage = () => {
     <div>
       <AppbarClient />
       <div className=" h-screen text-center justify-center items-center pt-40 lg:pt-72">
-        <div className="font-rubikone text-5xl pb-6 flex justify-center items-center flex-wrap">
+        <div className="font-serif text-6xl pb-6 flex justify-center items-center flex-wrap">
           <span>Transfer </span>
           <FlipWords words={words} />
           <span>with PayEase</span>
         </div>
-        <p className=" font-afacad text-xl text-gray-700 mb-4">
+        <p className=" font-sans text-gray-600 mb-4">
           Effortlessly manage, add, and track your funds. Welcome to a smarter
           way to handle your money.
         </p>
