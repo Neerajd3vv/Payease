@@ -42,7 +42,7 @@ jobs:
             sudo docker pull neerajcheetah/payease-next:latest
             sudo docker stop Payease || true
             sudo docker rm Payease || true
-            sudo docker run -e DATABASE_URL=${{secrets.DATABASE_URL}} -d --name Payease -p 3005:3000 neerajcheetah/payease-next:latest
+            sudo docker run --pull always -e DATABASE_URL=${{secrets.DATABASE_URL}} -d --name Payease -p 3005:3000 neerajcheetah/payease-next:latest
        
             sudo docker pull neerajcheetah/payease-bank-webhook:latest
             sudo docker stop Bank-Webhook || true
